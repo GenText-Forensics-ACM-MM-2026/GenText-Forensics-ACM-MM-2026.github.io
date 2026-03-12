@@ -4,9 +4,9 @@
     text-decoration: none;
 }
 :root {
-    --primary-color: #2c3e50;
+    --primary-color: #333333;
     --secondary-color: #3498db;
-    --background-color: #f9f9f9;
+    --background-color: #ffffff;
 }
 body {
     font-family: 'Segoe UI', sans-serif;
@@ -16,10 +16,11 @@ body {
 }
 
 nav {
-    background: var(--primary-color);
+    background: #ffffff;
     padding: 1rem;
     position: sticky;
     top: 0;
+    border-bottom: 1px solid #e0e0e0;
 }
 
 nav ul {
@@ -31,14 +32,21 @@ nav ul {
 }
 
 nav a {
-    color: white;
+    color: #000000;
     text-decoration: none;
     padding: 0.5rem 1rem;
     border-radius: 4px;
+    font-weight: 600;
 }
 
 nav a.active {
     background: var(--secondary-color);
+    color: white;
+}
+
+nav a:hover {
+    color: #0056b3;
+    background-color: #f8f9fa;
 }
 
 .container {
@@ -50,9 +58,8 @@ nav a.active {
 .hero {
     text-align: center;
     padding: 4rem 0;
-    background: linear-gradient(rgba(44,62,80,0.9), rgba(44,62,80,0.9)),
-                url('header-bg.jpg');
-    color: white;
+    background: #ffffff;
+    color: #333333;
 }
 
 .highlights {
@@ -105,8 +112,8 @@ nav a.active {
 }
 
 footer {
-    background: var(--primary-color);
-    color: white;
+    background: #ffffff;
+    color: #333333;
     text-align: center;
     padding: 1rem;
     margin-top: 3rem;
@@ -336,7 +343,7 @@ footer {
 /* Add to styles.css */
 /* SCHEDULE SPECIFIC STYLES */
 .page-title {
-    color: #2c3e50;
+    color: #000000;
     border-bottom: 3px solid #3498db;
     padding-bottom: 1rem;
 }
@@ -353,7 +360,7 @@ footer {
     display: flex;
     align-items: center;
     gap: 1rem;
-    color: #34495e;
+    color: #000000;
     margin-bottom: 2rem;
 }
 
@@ -415,8 +422,8 @@ footer {
 .table-header {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
-    background: #3498db;
-    color: white;
+    background: #f8f9fa;
+    color: #000000;
     padding: 1rem;
     font-weight: bold;
 }
@@ -453,8 +460,8 @@ footer {
 }
 
 .date-badge {
-    background: #3498db;
-    color: white;
+    background: #f8f9fa;
+    color: #333333;
     width: 100px;
     height: 100px;
     border-radius: 50%;
@@ -639,8 +646,8 @@ footer {
 .competition-header {
     text-align: center;
     padding: 4rem 0;
-    background: var(--primary-color);
-    color: white;
+    background: #ffffff;
+    color: #333333;
     border-radius: 8px;
     margin-bottom: 2rem;
 }
@@ -785,13 +792,6 @@ footer {
         font-size: 1.8rem;
     }
 }
-/* 导航栏样式 */
-nav {
-    background: var(--primary-color); /* 使用自定义主色 */
-    padding: 1rem;
-    position: sticky; /* 粘性定位 */
-    top: 0;
-    z-index: 1000; /* 确保导航栏在其他内容上方 */
 }
 
 nav ul {
@@ -1090,7 +1090,3 @@ footer {
         border-right-color: #ffffff; /* 三角形颜色，白色，可以根据需要更改 */
     }
 </style>
-
-
-
-

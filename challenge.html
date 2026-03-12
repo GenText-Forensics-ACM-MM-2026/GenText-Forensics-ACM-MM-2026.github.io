@@ -3,36 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Workshop Challenge | IJCAI 2025</title>
+    <title>GenText-Forensics 2026</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
-<body>
-<nav>
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="schedule.html">Schedule</a></li>
-        <li class="dropdown">
-            <a href="#">Challenge</a>
-            <ul class="dropdown-menu">
-                <li><a href="challenge.html">Evaluate</a></li>
-                <li><a href="datasets.html">Datasets</a></li>
-            </ul>
-        </li>
-        <li><a href="Registration.html">Registration</a></li>
-        <li><a href="organizers.html">Organizers</a></li>
-<!--        <li class="active"><a href="accepted_paper.html">Accepted Papers</a></li>-->
-    </ul>
-</nav>
+<body style="background-color: #ffffff; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+    <nav style="background-color: rgba(255, 255, 255, 0.98); backdrop-filter: blur(20px); box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1); padding: 12px 0; position: sticky; top: 0; z-index: 1000;">
+        <ul style="list-style: none; margin: 0; padding: 0 40px; display: flex; align-items: center; justify-content: center;">
+            <li style="margin-right: 40px;"><a href="index.html" style="color: #1d1d1f; text-decoration: none; font-size: 17px; font-weight: 400; padding: 8px 12px; transition: opacity 0.3s ease;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Home</a></li>
+            <li class="dropdown" style="margin-right: 40px;">
+                <a href="#" style="color: #1d1d1f; text-decoration: none; font-size: 17px; font-weight: 400; padding: 8px 12px; transition: opacity 0.3s ease;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Challenge</a>
+                <ul class="dropdown-menu" style="background-color: rgba(255, 255, 255, 0.98); backdrop-filter: blur(20px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); border-radius: 12px; margin-top: 8px; border: none; padding: 8px 0;">
+                    <li><a href="challenge.html" style="color: #1d1d1f; text-decoration: none; padding: 8px 20px; display: block; font-size: 17px; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#f5f5f7'" onmouseout="this.style.backgroundColor='transparent'">Evaluate</a></li>
+                </ul>
+            </li>
+            <li style="margin-right: 0;"><a href="organizers.html" style="color: #1d1d1f; text-decoration: none; font-size: 17px; font-weight: 400; padding: 8px 12px; transition: opacity 0.3s ease;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Organizers</a></li>
+        </ul>
+    </nav>
 
 <div class="container">
     <div class="page-content">
         <div class="card committee-section">
             <h2 class="section-header"><b>Challenge Significance</b></h2>
-            <p>As deepfake technology advances rapidly, fake images and audio-visual content threaten social security and media credibility. The Deepfake Detection and Localization Challenge (DDL Challenge) aims to:</p>
+            <p>As AI-generated content (AIGC) evolves rapidly, text-centric image manipulation intensifies threats to media credibility, while existing forensic research remains disproportionately focused on facial Deepfakes. The GenText-Forensics Challenge aims to:</p>
             <ul>
-                <li>Enhance detection interpretability by providing intuitive evidence through temporal-spatial localization (e.g., pixel-level tampered areas, forged timestamps).</li>
-                <li>Address multi-modal risks by tackling complex attacks such as "forged audio + authentic video," filling the existing technical gaps.</li>
-                <li>Promote technology inclusivity by providing access to the world's largest multi-modal deepfake dataset (1.8M+ samples), which encompasses 88 forgery techniques.</li>
+                <li>Bridge the research gap by establishing the first AI security challenge dedicated to text-centric multimedia forensics, shifting focus from under-explored text forgery to a unified adversarial framework.</li>
+                <li>Enable robust benchmarking by leveraging the newly released <b>RealText-V2</b> dataset—a large-scale, multilingual benchmark covering diverse real-world scenarios—to accelerate the development of defensive strategies.</li>
+                <li>Align with "AI for Good" by integrating offensive and defensive perspectives to raise awareness of AI-generated text-centric forgeries and foster robust, explainable solutions within the ACM MM mission.
+
+</li>
             </ul>
         </div>
 
@@ -41,9 +40,10 @@
             <h3>1. Participation Guidelines</h3>
             <h4>a) Model Submission Requirements</h4>
             <ul>
-                <li>Each track permits only one model submission that must simultaneously address both classification and localization tasks.</li>
+                <li>Each team is permitted only one final model submission per track.
+Models must simultaneously address the required tasks for their respective tracks (e.g., in Track 1, models must jointly perform detection, grounding, and explanation).</li>
                 <li>All models must utilize open-source pre-trained architectures. Teams developing proprietary models during the competition are required to publicly release their model specifications and training protocols under open-source licenses (e.g., MIT, Apache 2.0) during the competition period.</li>
-                <li>Winning solutions must open-source their full implementation, including:
+                <li>Winning solutions are required to open-source their full implementation, including:
                     <ul>
                         <li>Training pipelines and hyperparameter configurations</li>
                         <li>Evaluation code with reproducibility documentation</li>
@@ -51,78 +51,131 @@
                     </ul>
                 </li>
                 <li>Violations of these rules will result in disqualification. The organizing committee reserves final authority over all competition-related matters.</li>
-                <li>Extended samples generated by data augmentation/deepfake tools based on the released training set can be used for training, but these tools need to be submitted for reproduction.</li>
+                <li>Participants are encouraged to create synthetic data or perform data augmentation based on the official RealText-V2 dataset. Tools and scripts used for such augmentation must be submitted alongside the final solution to ensure reproducibility.</li>
+                <li>Violations of these rules may result in disqualification. The organizing committee reserves the final authority over all competition-related decisions.</li>
             </ul>
             <h3>2. Awards and Recognition</h3>
             <ul>
-                <li>Monetary prizes: Substantial monetary awards will be granted to top-performing teams across both tracks.</li>
-                <li>Academic recognition: Exceptional solutions will be invited for presentation at the IJCAI.</li>
+                <li>Monetary Prizes: Substantial monetary awards will be granted to the top-performing teams across both tracks to support their continued research.</li>
+                <li>Academic Recognition: Exceptional solutions will be invited for presentation at the  ACM MM.</li>
             </ul>
         </div>
 
         <div class="card committee-section">
             <h2 class="section-header"><b>Challenge Content</b></h2>
-            <p>This challenge consists of two tracks focusing on detection and localization of deepfake artifacts:</p>
-            <h3>Track 1: Image Detection and Localization (DDL-I)</h3>
-            <ul>
-                <li>Tasks: Real/Fake Classification (Cla) + Spatial Localization (SL).</li>
-                <li>Dataset: Over 1.5 million images covering 61 manipulation techniques, including single-face and multi-face tampering scenarios.</li>
-                <li>Evaluation Metrics: Area Under the ROC Curve (AUC) for detection, F1 Score, and Intersection over Union (IoU) for spatial localization (calculated exclusively for fake samples).</li>
-                <center><img src="images/f1_score.png" style="width: 500px; height: auto;"></center>
-            </ul>
+            <p>This challenge consists of two tracks focusing on the <b>Defense</b> (forensic analysis) and <b>Attack</b> (adversarial generation) of text-centric forgeries:</p>
+            <h3>Track 1: Forgery Analysis Report Generation (Defense)</h3>
+            <p>In this track, participants are required to generate a structured analysis report in Markdown format.</p>
+                <ul>
+                    <li><b>Tasks</b>: Real/Fake Classification (Cla) + Spatial Localization (SL) + Forensic Report Generation.</li>
+                    <li><b>Dataset</b>: Built upon <b>RealText-V2</b>, spanning 7 languages and 5 real-world scenarios.</li>
+                    <li><b>Evaluation Metrics</b>: The evaluation measures performance across four distinct dimensions: Detection, Grounding, Explanation, and Overall Report Quality via Rubrics. Metrics Definition is as follows:
+                        <ul>
+                            <li><b>Detection</b> (S<sub>Det</sub>): We use the standard F1-Score to measure the trade-off between Precision and Recall.</li>
+                            <li><b>Grounding</b> (S<sub>Loc</sub>): To evaluate localization precision, we calculate the Pixel-level F1-Score (mF1) and mean Intersection over Union (mIoU) based on the intersection between predicted masks and Ground Truth masks, strictly adhering to the protocol in TruFor.</li>
+                            <li><b>Explanation</b> (S<sub>Exp</sub>): This metric evaluates the linguistic quality and semantic fidelity of the generated explanation. We utilize BERTScore to calculate the semantic similarity between the participant's generated text and the expert-annotated ground truth explanation.</li>
+                            <li><b>Report Quality Rubrics</b> (S<sub>Rep</sub>): We employ an advanced LLM Judge (e.g., Qwen3-MAX or GPT-4o) to conduct a rubric-based evaluation. We define fine-grained scoring rubrics (normalized to 0-100) covering three critical dimensions: Factuality (accuracy of verdict and evidence), Reasoning (logical deduction from visual clues), and Completeness (coverage of manipulated regions and format compliance). This ensures the evaluation aligns with human expert standards.</li>
+                        </ul>
+                    </li>
+                </ul>
+            <p>The final ranking is determined by a weighted sum of the four components, placing significant emphasis on both the detection accuracy and the overall quality of the forensic report:</p>
+            <center><img src="images/S_fin.png" style="width: 500px; height: auto;"></center>
 
-            <h3>Track 2: Audio-Visual Detection and Localization (DDL-AV)</h3>
-            <ul>
-                <li>Tasks: Real/Fake Classification (Cla) + Temporal Localization (TL).</li>
-                <li>Dataset: 300,000+ samples integrating 9 audio manipulation methods and 18 video forgery techniques.</li>
-                <li>Evaluation Metrics: Area Under the ROC Curve (AUC) for detection, Average Precision (AP), and Average Recall (AR) for temporal localization (calculated exclusively for fake samples).</li>
-                <center><img src="images/average_percision.png" style="width: 500px; height: auto;"></center>
-            </ul>
+                <h3>Track 2: AIGC Text-Image Editing (Attack)</h3>
+                <p>The objective of this track is to generate high-fidelity, adversarial text forgeries.</p>
+                <p>This track focuses on the offensive counterpart, challenging models to generate high-fidelity adversarial text forgeries.</p>
+                <ul>
+                    <li><b>Tasks</b>: Semantic Content Replacement, Non-Latin Character Editing, and Style Attribute Transfer.</li>
+                    <li><b>Dataset</b>: High-fidelity adversarial samples generated by advanced AIGC techniques.</li>
+                    <li><b>Evaluation Metrics</b>: Measured by <b>VIEScore</b>, which balances semantic consistency and perceptual quality.
+                        <ul>
+                            <li><b>Semantic Consistency</b> (S<sub>SC</sub>): Unlike facial deepfakes that rely on identity similarity, text forgery requires textual precision. We adapt the SC Score as follows:</li>
+                        </ul>
+                    </li>
+                </ul>
+                <center><img src="images/Ssc.png" style="width: 500px; height: auto;"></center>
+                
+                <ul>
+                    <li><b>Perceptual Quality</b> (S<sub>PQ</sub>): Aggregates Visual Fidelity (via MUSIQ) and Anti-Forensics (Attack Success Rate).</li>
+                </ul>
+                <p>The final VIEScore is defined below:</p>
+                <center><img src="images/Vie.png" style="width: 500px; height: auto;"></center>
         </div>
     </div>
-<div class="card committee-section">
-    <h2 class="section-header"><b>Submission Formats</b></h2>
+    <div class="card committee-section">
+        <h2 class="section-header"><b>Submission Formats</b></h2>
 
-    <h3>Image Track Submission Format</h3>
-    <ul>
-        <li><b>Real:</b> The image is real and the corresponding label is 0.</li>
-        <li><b>Fake:</b> The image is fake and the corresponding label is 1.</li>
-        <li><b>Detection:</b> The metrics for this task is the AUC score.</li>
-        <li><b>Localization:</b> The metrics for this task is the IoU score and F1 score.</li>
-        <li>The Final score is the average of the above three scores.</li>
-        <center><img src="images/final_score1.jpg" style="width: 500px; height: auto;"></center>
-        <li>The model output should be a single confidence number of the input image being fake and the corresponding predicted manipulated mask. The expected submission format is like below:</li>
-    </ul>
-    <center><img src="images/image_format.png" style="width: 500px; height: auto;"></center>
-    <p>The submitted forlder format is like below:
-        -prediction.txt
-        -mask (folder)
-        -000001.png
-        -000002.png
-        -000003.png
-        ...
-        -xxxxxx.png</p>
-    <p>Note: The size of the predicted mask should be the same as the corresponding original image.</p>
-    <span style="color: red;"><b>Then compress them into a .zip file.</b></span>
+            <h3>Track 1: Forgery Analysis Report Generation (Defense)</h3>
+            <p>Participants are required to submit their analysis in <b>Markdown format (.md)</b>. To facilitate automated evaluation via LLM-based parsing, each report must strictly adhere to the following structured schema:</p>
+            <h3>Report Structure Requirements</h3>
+            <p>Each submission must include the following mandatory sections:</p>
+        
+        <ul>
+            <li><b>1. Authenticity Judgment (Conclusion)</b>
+                <ul>
+                    <li>Clearly declare the forgery status.</li>
+                    <li>Format: Conclusion: [Forged / Authentic]</li>
+                </ul>
+            </li>
+            <li><b>2. Forensic Suspicion Score (Score)</b>
+                <ul>
+                    <li>A numerical confidence score (0–100) representing the likelihood of manipulation.</li>
+                    <li>Format: Score: [0–100]</li>
+                </ul>
+            </li>
+            <li><b>3. Manipulation Grounding (Tamper Regions)</b>
+                <ul>
+                    <li>Provide bounding box coordinates (normalized) and the associated forged content for each detected region.</li>
+                </ul>
+                <ul>
+                    <li>Format:<code>codeMarkdown</code></li>
+<!--                    <li><code>codeMarkdown</code></li>-->
+                </ul>
+            </li>
+        </ul>
+        
+        <center><img src="images/Tamper.jpg" style="width: 500px; height: auto;"></center>
+        
+        <ul>
+            <li><b>Example</b>: Region 1: [50, 50, 100, 100], ACMMM GenText-Forensics</li>
+        </ul>
+        
+            <h3>Parsing & Evaluation Notice</h3>
+            <p>The evaluation pipeline utilizes an advanced LLM Judge to extract these fields for quantitative metric calculation. Reports failing to follow this schema may result in parsing errors and, consequently, lower evaluation scores.</p>
+            <p><b>Track 2: Forgery Analysis Report Generation (Defense)</b>
 
-    <h3>Audio-Visual Track Submission Format</h3>
-    <ul>
-        <li><b>Real:</b> The video is real, which means there is no fake segment in the video.</li>
-        <li><b>Fake:</b> The video is fake, which means there is at least one fake segment in the video.</li>
-        <li><b>Detection:</b> The metrics for this task is the AUC score.</li>
-        <li><b>Localization:</b> The metrics for this task are AP (Average Precision) and AR (Average Recall).</li>
-        <center><img src="images/audio_format_1.png" style="width: 500px; height: auto;"></center>
-        <P>The Final score is the average of the above two scores.</P>
-        <center><img src="images/final_score2.jpg" style="width: 500px; height: auto;"></center>
-        <Li>The model output should be a single confidence number of the input video being fake and the temporal localization of the fake segments in the input video. The expected format is a txt file and a json file with the following structure:</Li>
-    </ul>
-    <center><img src="images/audio_format_2.png" style="width: 500px; height: auto;"></center>
-    <span style="color: red;"><b>Then compress them into a .zip file.</b></span>
+
+
+        <h3>Track 2: Adversarial Generation Submission Specification</h3>
+        <p>Participants are required to submit a compressed archive containing all generated adversarial images and a master metadata file in <b>CSV format (submission.csv)</b>. To facilitate automated evaluation, the CSV file must adhere strictly to the following schema.</p>
+        
+        <h3>Submission Package Structure</h3>
+        <p>The submission must include:</p>
+        <ul>
+            <li><b>Image Directory (/images)</b>: All 1,000 generated images (200 images per language). Filenames must match the image_id column in the CSV file.</li>
+            <li><b>Metadata File (submission.csv)</b>: A CSV file containing generation parameters and ground truth labels for manipulation regions.</li>
+        </ul>
+        
+        <h3>CSV Metadata Schema</h3>
+        <p>Each row in the submission.csv must represent a single adversarial image and include the following columns:</p>
+        
+        <center><img src="images/CSV.png" style="width: 500px; height: auto;"></center>
+
+        <h3>Example CSV Entry</h3>
+
+        <center><img src="images/Entry.png" style="width: 500px; height: auto;"></center>
+        
+        <h3>Parsing & Evaluation Notice</h3>
+        <p>The evaluation pipeline relies on this CSV file to perform metric extraction.</p>
+        <ul>
+            <li><b>Accuracy</b>: Ensure that forged_region coordinates correspond to the actual visual manipulation in the submitted images.</li>
+            <li><b>Consistency</b>: Mismatches between the image_id and the files in the /images folder, or deviations from the schema, may lead to parsing failures and a disqualification of the entry.</li>
+            <li><b>Validation</b>: Participants are strongly encouraged to use the provided validation script (available on the Kaggle project page) to verify their CSV structure before final submission.</li>
+        </ul>
+    </div>
 </div>
-</div>
-</div>
-<footer>
-    <p>Contact: workshop-deepfake@ijcai2025.org</p>
+<footer style="background-color: white; padding: 3rem 2rem; border-top: 1px solid #e5e5e7; margin-top: 4rem;">
+    <p style="color: #6e6e73; font-size: 1rem; font-weight: 400; text-align: center; margin: 0;">Contact: <a href="riczuefwsct@alu.uestc.edu.cn, jianshu.l@antgroup.com" style="color: #0071e3; text-decoration: none;">riczuefwsct@alu.uestc.edu.cn, jianshu.l@antgroup.com</a></p>
 </footer>
 </body>
 </html>
