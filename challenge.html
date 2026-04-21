@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge | GenText-Forensics 2026</title>
+    <meta name="description" content="GenText-Forensics Challenge evaluation metrics, submission formats and competition rules at ACM MM 2026.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<nav class="nav" aria-label="Main navigation">
+    <div class="nav-inner">
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="challenge.html" class="active" aria-current="page">Challenge</a></li>
+            <li><a href="datasets.html">Datasets</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
+            <li><a href="organizers.html">Organizers</a></li>
+        </ul>
+    </div>
+</nav>
+
+<main id="main" class="container">
+
+    <!-- Challenge Significance -->
+    <section class="glass-card animate-in">
+        <h2 class="section-header">
+            <i class="fas fa-shield-alt" aria-hidden="true"></i>
+            Challenge Significance
+        </h2>
+        <p>The rapid evolution of AIGC technologies has transformed document tampering into a sophisticated threat that blends visual forgery with high-level semantic manipulation. The <strong>GenText-Forensics Challenge</strong> is established to address these emerging risks through three strategic objectives:</p>
+        <ul>
+            <li><strong>Pioneering Multilingual Text-Centric Forensics:</strong> While traditional forensics focuses on low-level visual anomalies, this challenge addresses the under-explored domain of <strong>text-rich image security</strong>. By shifting the paradigm from simple binary detection to a <strong>unified forgery analysis task</strong>, we aim to tackle covert threats like "visually similar character substitution" that can trigger cascading poisoning risks across <strong>OCR&ndash;LLM pipelines</strong>.</li>
+            <li><strong>Establishing a Robust Multimodal Benchmark:</strong> By leveraging the <strong>RealText-V2</strong> dataset&mdash;the world's first large-scale, multilingual (6 languages) and multi-domain benchmark&mdash;the challenge provides a standardized platform to evaluate defensive models against 100+ sophisticated attack methods. This accelerates the transition from laboratory research to reliable, real-world information security applications.</li>
+            <li><strong>Advancing Explainable AI (XAI) for Information Security:</strong> Aligning with the "AI for Good" ethos and the ACM MM mission, this challenge emphasizes the creation of <strong>complete evidence chains</strong>. By requiring participants to generate structured forensic reports that integrate detection, localization, and natural language reasoning, we foster the development of transparent and accountable AI solutions essential for highly regulated sectors like finance and healthcare.</li>
+        </ul>
+    </section>
+
+    <!-- Competition Rules -->
+    <section class="glass-card animate-in">
+        <h2 class="section-header">
+            <i class="fas fa-gavel" aria-hidden="true"></i>
+            Competition Rules and Incentives
+        </h2>
+
+        <h3>1. Model Submission Requirements</h3>
+        <ul>
+            <li><strong>Integrated Functionality:</strong> We do not impose limits on the internal architecture or the number of models used within a solution. However, the proposed system must demonstrate a unified capability to execute all core tasks&mdash;detection, spatial grounding, and natural language explanation&mdash;simultaneously. The output must be a cohesive forensic report that reflects a joint modeling approach to evidence chain synthesis.</li>
+            <li><strong>Open-Source Frameworks:</strong> All submissions must be built upon open-source pre-trained architectures. Teams developing proprietary models during the challenge are required to release their model specifications and training protocols under recognized open-source licenses (e.g., MIT, Apache 2.0) prior to the competition's conclusion.</li>
+            <li><strong>Reproducibility &amp; Transparency:</strong> Winning teams are mandated to open-source their complete implementations. This includes:
+                <ul>
+                    <li>End-to-end training pipelines and precise hyperparameter configurations.</li>
+                    <li>Standardized evaluation code and detailed reproducibility documentation.</li>
+                    <li>Final model weights provided in industry-standard formats.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>2. Data Usage and Augmentation</h3>
+        <ul>
+            <li><strong>Strict Data Limitation:</strong> To ensure a fair and controlled benchmarking environment, participants are <strong>strictly prohibited from using any external datasets</strong> for training. All experimental and training workflows must rely exclusively on the official <strong>RealText-V2</strong> dataset.</li>
+            <li><strong>In-Dataset Augmentation:</strong> Participants are encouraged to innovate through data augmentation or the generation of synthetic samples, provided they are <strong>derived solely from the RealText-V2 dataset</strong>.</li>
+            <li><strong>Methodological Disclosure:</strong> To maintain the integrity of the challenge, all tools, scripts, and generative prompts used for such in-dataset augmentation must be submitted alongside the final solution for verification and reproducibility checks.</li>
+        </ul>
+
+        <h3>3. Compliance and Authority</h3>
+        <ul>
+            <li><strong>Strict Adherence:</strong> Any violation of the aforementioned rules, including plagiarism or the use of undisclosed proprietary data, will result in immediate disqualification.</li>
+            <li><strong>Final Authority:</strong> The GenText-Forensics organizing committee reserves the final authority over all competition-related decisions, including rule interpretations and final ranking validations.</li>
+        </ul>
+    </section>
+
+    <!-- Challenge Content -->
+    <section class="glass-card animate-in">
+        <h2 class="section-header">
+            <i class="fas fa-flask" aria-hidden="true"></i>
+            Challenge Task: Forgery Analysis Report Generation
+        </h2>
+        <p>This challenge focuses on the comprehensive analysis of text-centric forgeries. Participants are required to develop systems that automatically generate a <strong>structured forensic analysis report in Markdown format</strong> for a given text-rich image.</p>
+
+        <div class="tracks-grid">
+            <!-- Defense Track -->
+            <div class="track-card defense">
+                <span class="track-label">Defense Track</span>
+                <h3>Forgery Analysis Report Generation</h3>
+                <ul>
+                    <li>Requiring the generation of comprehensive reports that integrate <strong>detection</strong>, <strong>spatial grounding</strong>, and <strong>natural language explanation</strong>.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Evaluation Metrics -->
+        <section class="submission-box mt-3">
+            <h3><i class="fas fa-chart-bar" aria-hidden="true"></i> Evaluation Metrics</h3>
+            <p>The evaluation measures performance across four distinct dimensions:</p>
+            <ul>
+                <li><strong>Detection</strong> (S<sub>Det</sub>): We use the standard F1-Score to measure the trade-off between Precision and Recall.</li>
+                <li><strong>Grounding</strong> (S<sub>Loc</sub>): To evaluate localization precision, we calculate the Pixel-level F1-Score (mF1) and mean Intersection over Union (mIoU) based on the intersection between predicted masks and Ground Truth masks, strictly adhering to the protocol in TruFor.</li>
+                <li><strong>Explanation</strong> (S<sub>Exp</sub>): This metric evaluates the linguistic quality and semantic fidelity of the generated explanation. We utilize BERTScore to calculate the semantic similarity between the participant's generated text and the expert-annotated ground truth explanation.</li>
+                <li><strong>Report Quality Rubrics</strong> (S<sub>Rep</sub>): We employ an advanced LLM Judge (e.g., Qwen3-MAX or GPT-4o) to conduct a rubric-based evaluation. We define fine-grained scoring rubrics (normalized to 0-100) covering three critical dimensions: <em>Factuality</em> (accuracy of verdict and evidence), <em>Reasoning</em> (logical deduction from visual clues), and <em>Completeness</em> (coverage of manipulated regions and format compliance).</li>
+            </ul>
+            <p>The final ranking is determined by a weighted sum of the four components:</p>
+            <img src="images/S_fin.png" alt="Final Score Formula" class="formula-img">
+        </section>
+    </section>
+
+    <!-- Submission Formats -->
+    <section class="glass-card animate-in">
+        <h2 class="section-header">
+            <i class="fas fa-upload" aria-hidden="true"></i>
+            Submission Formats
+        </h2>
+
+        <section class="submission-box">
+            <h3>Forgery Analysis Report Generation</h3>
+            <p>To ensure seamless automated evaluation, all participants must follow a unified submission protocol. The final submission must be a single compressed file named <code>prediction.jsonl.gz</code>.</p>
+
+            <h3>1. File Format &amp; Packaging</h3>
+            <p>The submission must be a <strong>JSON Lines (.jsonl)</strong> file where each line is a valid JSON object representing one test image.</p>
+            <ul>
+                <li><code>image_name</code>: (String) The exact filename of the test image.</li>
+                <li><code>report</code>: (String) The complete forensic analysis report in <strong>Markdown format</strong>, embedded as an escaped string.</li>
+            </ul>
+            <p><strong>Submission Workflow:</strong></p>
+            <ol>
+                <li>Generate the Markdown report for each image.</li>
+                <li>Package <code>image_name</code> and <code>report</code> into a <code>.jsonl</code> file.</li>
+                <li>Compress the file using Gzip: <code>gzip prediction.jsonl</code> &rarr; <code>prediction.jsonl.gz</code>.</li>
+            </ol>
+
+            <h3>2. Report Structure Requirements</h3>
+            <p>The <code>report</code> string must strictly adhere to the following schema. The <strong>LLM Judge</strong> relies on specific tags (e.g., <code>[...]</code>) to extract data for scoring.</p>
+
+            <h4>I. Overall Assessment</h4>
+            <p>This section provides the high-level verdict.</p>
+            <ul>
+                <li><strong>[Conclusion]:</strong> Clearly declare the status as <strong>FORGED</strong> or <strong>AUTHENTIC</strong>.</li>
+                <li><strong>[RISK_SCORE]:</strong> A numerical confidence score (<strong>0&ndash;100</strong>) representing the likelihood of manipulation.</li>
+            </ul>
+
+            <h4>II. Detailed Anomaly Analysis</h4>
+            <p>For each detected forgery, participants must create an anomaly entry (e.g., <code>### ANOMALY_001</code>). Each entry <strong>must</strong> contain:</p>
+            <ul>
+                <li><strong>[GROUNDING]:</strong> Normalized bounding box coordinates in the format <code>[xmin, ymin, xmax, ymax]</code>.</li>
+                <li><strong>[REASON]:</strong> A natural language explanation detailing visual artifacts (e.g., clumsy patching, noise inconsistency) and semantic contradictions (e.g., logical errors, identity fraud).</li>
+            </ul>
+
+            <h4>III. Summary</h4>
+            <p>A final synthesis of the findings, summarizing how the identified anomalies collectively support the overall assessment.</p>
+
+            <h3>3. Parsing &amp; Evaluation Notice (Strict Compliance)</h3>
+            <ul>
+                <li><strong>Schema Strictness:</strong> Reports failing to use the exact tags (e.g., using <code>[Result]</code> instead of <code>[Conclusion]</code>) will result in parsing failures and a <strong>score of zero</strong> for that sample.</li>
+                <li><strong>Coordinate Accuracy:</strong> Grounding coordinates must be <strong>normalized</strong> relative to the image dimensions.</li>
+                <li><strong>String Escaping:</strong> Since the Markdown report contains newlines (<code>\n</code>) and quotes (<code>"</code>), ensure the string is correctly escaped within the JSON object.</li>
+            </ul>
+
+            <h3>4. Comprehensive Submission Example</h3>
+            <p><strong>Single Line in <code>prediction.jsonl</code> (Visual Representation):</strong></p>
+            <pre><code>{
+  "image_name": "sample_document_001.jpg",
+  "report": "# FORGERY ANALYSIS REPORT\n\n**Overall Assessment:**\n    **[Conclusion]:** FORGED\n    **[RISK_SCORE]:** 73\n\n---\n\n## DETAILED ANOMALY ANALYSIS\n\n### ANOMALY_001: Visual Clumsy Alteration\n[GROUNDING]: [1081, 933, 1288, 998]\n[REASON]: A crude, solid black rectangular block has been applied to obscure the phone number. The sharp edges and uniform color create a clear discontinuity with the surrounding texture.\n\n### ANOMALY_002: Logical Fraud\n[GROUNDING]: [1372, 585, 1630, 655]\n[REASON]: The document states the meeting is at '5:00 a.m.', which contradicts standard business practice. The font of 'a.m.' shows slight misalignment, suggesting digital alteration.\n\n---\n\n## SUMMARY\nThe document identified 2 distinct anomalies. The forgery pattern involves a mix of crude redactions and logical inconsistencies.\n\n**END OF REPORT**"
+}</code></pre>
+
+            <h3>5. Summary of Mandatory Tags</h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Mandatory Markdown Tag</th>
+                            <th>Expected Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Verdict</strong></td>
+                            <td><code>**[Conclusion]:**</code></td>
+                            <td><code>FORGED</code> or <code>AUTHENTIC</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Confidence</strong></td>
+                            <td><code>**[RISK_SCORE]:**</code></td>
+                            <td>Integer <code>0</code> to <code>100</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Location</strong></td>
+                            <td><code>[GROUNDING]:</code></td>
+                            <td><code>[xmin, ymin, xmax, ymax]</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Explanation</strong></td>
+                            <td><code>[REASON]:</code></td>
+                            <td>String (Natural Language)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </section>
+
+</main>
+
+<footer class="footer">
+    <p>Contact: <a href="mailto:riczuefwsct@alu.uestc.edu.cn">riczuefwsct@alu.uestc.edu.cn</a>, <a href="mailto:jianshu.l@antgroup.com">jianshu.l@antgroup.com</a></p>
+</footer>
+
+</body>
+</html>
+

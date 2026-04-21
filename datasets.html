@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datasets | GenText-Forensics 2026</title>
+    <meta name="description" content="RealText-V2 dataset for the GenText-Forensics Challenge at ACM MM 2026 — a large-scale multilingual document forgery benchmark.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<nav class="nav" aria-label="Main navigation">
+    <div class="nav-inner">
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="challenge.html">Challenge</a></li>
+            <li><a href="datasets.html" class="active" aria-current="page">Datasets</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
+            <li><a href="organizers.html">Organizers</a></li>
+        </ul>
+    </div>
+</nav>
+
+<main id="main" class="container">
+
+    <h1 class="page-title">Datasets</h1>
+
+    <p>Existing datasets for text-centric image forensics often suffer from limited scale, lack of multilingual support, or absence of fine-grained reasoning annotations. To address these gaps and support the rigorous requirements of GenText-Forensics, we introduce <strong>RealText-V2</strong>&mdash;a large-scale, multi-dimensional benchmark purpose-built for text-centric image forensics.</p>
+
+    <!-- RealText-V2 Dataset Section -->
+    <section class="glass-card animate-in">
+        <div class="dataset-header">
+            <h2>RealText-V2 Dataset</h2>
+        </div>
+
+        <p>RealText-V2 is the first large-scale benchmark dedicated to diverse text scenarios, ranging from sparse text in natural scenes to dense text in complex documents. By combining scale, scenario diversity, and rich semantic annotations, RealText-V2 serves as a comprehensive testbed for forgery analysis and adversarial generation tasks. Pioneering in both scale and annotation depth, it features:</p>
+
+        <div class="dataset-highlights">
+            <div class="highlight-card">
+                <div class="highlight-icon"><i class="fas fa-images" aria-hidden="true"></i></div>
+                <h3>20K+</h3>
+                <p>Multi-modal samples with rich annotations</p>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon"><i class="fas fa-language" aria-hidden="true"></i></div>
+                <h3>6</h3>
+                <p>Languages spanning diverse script systems</p>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon"><i class="fas fa-industry" aria-hidden="true"></i></div>
+                <h3>6</h3>
+                <p>Real-world domains</p>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon"><i class="fas fa-crosshairs" aria-hidden="true"></i></div>
+                <h3>100+</h3>
+                <p>Attack &amp; forgery methods</p>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon"><i class="fas fa-layer-group" aria-hidden="true"></i></div>
+                <h3>3-Level</h3>
+                <p>Multi-granularity forgery coverage</p>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon"><i class="fas fa-tags" aria-hidden="true"></i></div>
+                <h3>Triple</h3>
+                <p>Detection + Grounding + Explanation</p>
+            </div>
+        </div>
+
+        <!-- Dataset Sample Visual -->
+        <h3 class="section-subtitle">Dataset Samples</h3>
+        <div class="sample-gallery" style="justify-content: center;">
+            <div class="sample-item">
+                <img src="images/doc_sample.png" alt="RealText-V2 Dataset Samples — Forged images with pixel-level ground truth masks across multiple languages and domains">
+                <p>Figure: RealText-V2 dataset samples. Forged images (top) with corresponding pixel-level ground truth masks (bottom), spanning diverse languages, domains, and forgery granularities.</p>
+            </div>
+        </div>
+
+        <!-- Language & Domain Details -->
+        <h3 class="section-subtitle">Languages &amp; Domains</h3>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h4><i class="fas fa-globe-americas" aria-hidden="true"></i> Multilingual Coverage</h4>
+                <p>RealText-V2 spans <strong>6 languages</strong>&mdash;English, Chinese, Arabic, Thai, Malay, and Indonesian&mdash;covering Latin, logographic, Arabic, and Thai script systems. Each writing system presents unique forensic challenges, from character-level substitution in Latin scripts to stroke-level tampering in Chinese characters.</p>
+            </div>
+            <div class="feature-card">
+                <h4><i class="fas fa-building" aria-hidden="true"></i> Multi-Domain Scenarios</h4>
+                <p>The dataset covers <strong>6 critical domains</strong>: Finance, Healthcare, Education, Live Streaming, E-commerce, and Natural Scenes. This diversity&mdash;from dense structured documents (financial statements, medical records) to sparse scene text (street signs, product labels)&mdash;ensures models are tested across the full spectrum of real-world text-rich imagery.</p>
+            </div>
+            <div class="feature-card">
+                <h4><i class="fas fa-draw-polygon" aria-hidden="true"></i> Multi-Granularity Forgery</h4>
+                <p>Forgery operations span three granularity levels: <strong>character-level</strong> (e.g., visually similar character substitution), <strong>word-level</strong> (e.g., content replacement with consistent typography), and <strong>semantic-level</strong> (e.g., logical contradictions, identity fraud). This hierarchy tests models' ability to detect both subtle visual artifacts and higher-level semantic inconsistencies.</p>
+            </div>
+        </div>
+
+        <div class="feature-grid" style="margin-top: var(--sp-4);">
+            <div class="feature-card">
+                <h4><i class="fas fa-robot" aria-hidden="true"></i> Multi-Source Samples</h4>
+                <p>The dataset incorporates both <strong>real-world</strong> tampered samples and <strong>AIGC-synthesized</strong> forgeries covering diverse generation pipelines. This dual-source design ensures forensic models generalize across traditional manipulation techniques and emerging AI-powered editing methods.</p>
+            </div>
+            <div class="feature-card">
+                <h4><i class="fas fa-map-marked-alt" aria-hidden="true"></i> Pixel-Level Localization</h4>
+                <p>Each forged sample is annotated with precise <strong>pixel-level ground truth masks</strong> that delineate the exact tampered regions. These masks are critical for training and evaluating spatial grounding models that must identify not just <em>whether</em> an image is forged, but <em>where</em> the manipulation occurred.</p>
+            </div>
+            <div class="feature-card">
+                <h4><i class="fas fa-comment-dots" aria-hidden="true"></i> Expert-Level Explanations</h4>
+                <p>Beyond binary labels and masks, RealText-V2 provides <strong>natural language explanations</strong> authored by domain experts. These explanations describe the specific visual artifacts (e.g., font inconsistency, noise discontinuity) and semantic contradictions (e.g., logical errors, identity fraud) that underpin each forgery judgment, enabling explainable forensic analysis.</p>
+            </div>
+        </div>
+
+        <!-- Comparison Table -->
+        <h3 class="section-subtitle">Comparison with Existing Datasets</h3>
+        <p>RealText-V2 is the first large-scale benchmark to support multilingual analysis with comprehensive annotations for detection (Det), grounding (Mask), and explanation (Expl).</p>
+
+        <div class="table-wrapper" style="margin-top: var(--sp-4);">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Dataset</th>
+                        <th>Total</th>
+                        <th>Text Line</th>
+                        <th>Multi-Lang</th>
+                        <th>Det</th>
+                        <th>Mask</th>
+                        <th>Expl</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>T-IC13</td>
+                        <td>462</td>
+                        <td><i class="fas fa-check" style="color: var(--accent-green);" aria-hidden="true"></i></td>
+                        <td><i class="fas fa-times" style="color: var(--accent-red);" aria-hidden="true"></i></td>
+                        <td><i class="fas fa-times" style="color: var(--accent-red);" aria-hidden="true"></i></td>
+                        <td><i class="fas fa-times" style="color: var(--accent-red);" aria-hidden="true"></i></td>
+                        <td><i class="fas fa-times" style="color: var(--accent-red);" aria-hidden="true"></i></td>
+                    </tr>
+                    <tr>
+                        <td>T-SROIE</td>
+                        <td>986</td>
+                        <td><i class="fas fa-check" style="color: var(--accent-green);" aria-hidden="true"></i></td>
+                        <td><i class="fas fa-times" style="color: var(--accent-red);" aria-hidden="true"></i></td>
+                        <td><i class="fas fa-times" style="color: var(--accent-red);" aria-hidden="true"></i></td>
+                        <td><i class="fas fa-times" style="color: var(--accent-red);" aria-hidden="true"></i></td>
+                        <td><i class="fas fa-times" style="color: var(--accent-red);" aria-hidden="true"></i></td>
+                    </tr>
+                    <tr>
+                        <td>OSFT</td>
+                        <td>2,938</td>
+                        <td><i class="fas fa-check" style="color: var(--accent-green);" aria-hidden="true"></i></td>
+                        <td><i class="fas fa-times" style="color: var(--accent-red);" aria-hidden="true"></i></td>
+                        <td><i class="fas fa-times" style="color: var(--accent-red);" aria-hidden="true"></i></td>
+                        <td><i class="fas fa-times" style="color: var(--accent-red);" aria-hidden="true"></i></td>
+                        <td><i class="fas fa-times" style="color: var(--accent-red);" aria-hidden="true"></i></td>
+                    </tr>
+                    <tr>
+                        <td>DocTamper</td>
+                        <td>170K</td>
+                        <td><i class="fas fa-times" style="color: var(--accent-red);" aria-hidden="true"></i></td>
+                        <td><i class="fas fa-times" style="color: var(--accent-red);" aria-hidden="true"></i></td>
+                        <td><i class="fas fa-check" style="color: var(--accent-green);" aria-hidden="true"></i></td>
+                        <td><i class="fas fa-check" style="color: var(--accent-green);" aria-hidden="true"></i></td>
+                        <td><i class="fas fa-times" style="color: var(--accent-red);" aria-hidden="true"></i></td>
+                    </tr>
+                    <tr>
+                        <td>RealText-V1</td>
+                        <td>5,397</td>
+                        <td><i class="fas fa-check" style="color: var(--accent-green);" aria-hidden="true"></i></td>
+                        <td><i class="fas fa-check" style="color: var(--accent-green);" aria-hidden="true"></i></td>
+                        <td><i class="fas fa-check" style="color: var(--accent-green);" aria-hidden="true"></i></td>
+                        <td><i class="fas fa-check" style="color: var(--accent-green);" aria-hidden="true"></i></td>
+                        <td><i class="fas fa-check" style="color: var(--accent-green);" aria-hidden="true"></i></td>
+                    </tr>
+                    <tr class="table-highlight">
+                        <td><strong>RealText-V2 (Ours)</strong></td>
+                        <td><strong>20K+</strong></td>
+                        <td><i class="fas fa-check" style="color: var(--accent-green);" aria-hidden="true"></i></td>
+                        <td><i class="fas fa-check" style="color: var(--accent-green);" aria-hidden="true"></i></td>
+                        <td><i class="fas fa-check" style="color: var(--accent-green);" aria-hidden="true"></i></td>
+                        <td><i class="fas fa-check" style="color: var(--accent-green);" aria-hidden="true"></i></td>
+                        <td><i class="fas fa-check" style="color: var(--accent-green);" aria-hidden="true"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Report Format Visualization -->
+        <h3 class="section-subtitle">Annotation &amp; Report Format</h3>
+        <p>Each forged sample in RealText-V2 is annotated with pixel-level localization masks, tampering type labels, and expert-level natural language explanations. For the challenge, participants generate structured forensic analysis reports in the following format:</p>
+
+        <div class="report-visual">
+            <div class="report-visual-header">
+                <i class="fas fa-file-alt" aria-hidden="true"></i>
+                <span>Forgery Analysis Report &mdash; Sample Output</span>
+            </div>
+            <div class="report-visual-body">
+                <div class="report-section">
+                    <div class="report-section-label"><i class="fas fa-gavel" aria-hidden="true"></i> Overall Assessment</div>
+                    <div class="report-field">
+                        <span class="report-tag">[Conclusion]</span>
+                        <span class="report-value verdict-forged">FORGED</span>
+                    </div>
+                    <div class="report-field">
+                        <span class="report-tag">[RISK_SCORE]</span>
+                        <span class="report-value">73<span class="report-value-hint">/100</span></span>
+                    </div>
+                </div>
+                <div class="report-divider"></div>
+                <div class="report-section">
+                    <div class="report-section-label"><i class="fas fa-search-plus" aria-hidden="true"></i> Anomaly Analysis</div>
+                    <div class="report-anomaly">
+                        <div class="report-anomaly-id">ANOMALY_001</div>
+                        <div class="report-field">
+                            <span class="report-tag">[GROUNDING]</span>
+                            <span class="report-value report-mono">[1081, 933, 1288, 998]</span>
+                        </div>
+                        <div class="report-field">
+                            <span class="report-tag">[REASON]</span>
+                            <span class="report-value">A crude, solid black rectangular block has been applied to obscure the phone number. The sharp edges and uniform color create a clear discontinuity with the surrounding texture.</span>
+                        </div>
+                    </div>
+                    <div class="report-anomaly">
+                        <div class="report-anomaly-id">ANOMALY_002</div>
+                        <div class="report-field">
+                            <span class="report-tag">[GROUNDING]</span>
+                            <span class="report-value report-mono">[1372, 585, 1630, 655]</span>
+                        </div>
+                        <div class="report-field">
+                            <span class="report-tag">[REASON]</span>
+                            <span class="report-value">The document states the meeting is at '5:00 a.m.', which contradicts standard business practice. The font of 'a.m.' shows slight misalignment, suggesting digital alteration.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="report-divider"></div>
+                <div class="report-section">
+                    <div class="report-section-label"><i class="fas fa-clipboard-check" aria-hidden="true"></i> Summary</div>
+                    <p class="report-summary">The document exhibits 2 distinct anomalies. The forgery pattern involves a mix of crude redactions and logical inconsistencies, providing substantial evidence of tampering.</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Data Access Section -->
+    <section class="glass-card animate-in">
+        <h2 class="section-header">
+            <i class="fas fa-download" aria-hidden="true"></i>
+            Data Access
+        </h2>
+        <p>RealText-V2 dataset files and metadata will be released through the official competition platform. Please check the <a href="schedule.html">Schedule</a> page for data release dates.</p>
+        <div class="doc-cards">
+            <div class="doc-card">
+                <h3><i class="fas fa-database" aria-hidden="true"></i> Training Data</h3>
+                <p>Includes forged and authentic images with pixel-level ground truth masks, tampering type labels, and expert-level natural language explanations for "Hard Samples." Designed for training explainable forensic agents.</p>
+            </div>
+            <div class="doc-card">
+                <h3><i class="fas fa-lock" aria-hidden="true"></i> Test Data</h3>
+                <p>Used for final leaderboard ranking. Ground truth labels are withheld. Participants submit structured forensic reports (JSONL format) for automated evaluation via the LLM Judge pipeline.</p>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="footer">
+    <p>Contact: <a href="mailto:riczuefwsct@alu.uestc.edu.cn">riczuefwsct@alu.uestc.edu.cn</a>, <a href="mailto:jianshu.l@antgroup.com">jianshu.l@antgroup.com</a></p>
+</footer>
+
+</body>
+</html>
